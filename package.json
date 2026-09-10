@@ -1,0 +1,9 @@
+{
+  "name": "ratiss-decoherence-atlas",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Offline WebGL reader for RATISS topological decoherence artifacts.",
+  "scripts": {
+    "test": "node tests/verify-artifact.mjs && node tests/verify-studio-model.mjs && node tests/verify-external-artifacts.mjs"
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "schema": "ratiss.topological-decoherence.timeline.v1",
+  "provenance": {
+    "mode": "external_bio_correlation",
+    "engine": "ratiss-topological-decoherence-engine",
+    "simulation": "declared_bio_correlation",
+    "validated_on_hardware": false,
+    "claim_boundary": "Simulation and topological post-processing only; not a hardware topological-qubit certification or an error-correction command."
+  },
+  "encoding": {
+    "profile": "external_bio_correlation",
+    "description": "Supplied normalized biological correlation structure; no quantum-coherence, causal, clinical or biological-diagnostic inference.",
+    "hardware_claim": "none"
+  },
+  "config": {
+    "n_qubits": 3,
+    "scenario": "external_bio_correlation",
+    "t1_seconds": 0.0001,
+    "t2_seconds": 5e-05,
+    "single_gate_seconds": 4e-06,
+    "two_gate_seconds": 1.2e-05,
+    "one_qubit_depolarizing": 0.001,
+    "two_qubit_depolarizing": 0.01,
+    "edge_threshold": 0.04,
+    "criticality_threshold": 0.38,
+    "rips_max_edge": null
+  },
+  "cube": {
+    "axes": [
+      "step",
+      "source_qubit",
+      "target_qubit"
+    ],
+    "metric": "declared_bio_correlation",
+    "normalization": "declared association normalized to [0, 1]"
+  },
+  "steps": [
+    {
+      "step": 0,
+      "gate": "window_0",
+      "qubits": [
+        {
+          "id": 0,
+          "position": [
+            2.8,
+            0.0,
+            0.0
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.15,
+          "psig": 0.15,
+          "degree": 2,
+          "criticality": 0.6375,
+          "criticality_terms": {
+            "structural_support_deficit": 0.85,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 1,
+          "position": [
+            -1.4,
+            2.424871,
+            -0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.25,
+          "psig": 0.25,
+          "degree": 2,
+          "criticality": 0.5625,
+          "criticality_terms": {
+            "structural_support_deficit": 0.75,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 2,
+          "position": [
+            -1.4,
+            -2.424871,
+            0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.2,
+          "psig": 0.2,
+          "degree": 2,
+          "criticality": 0.6,
+          "criticality_terms": {
+            "structural_support_deficit": 0.8,
+            "link_break_ratio": 0.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "mutual_information": 0.2,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 0.2,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        },
+        {
+          "source": 0,
+          "target": 2,
+          "mutual_information": 0.1,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 0.1,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        },
+        {
+          "source": 1,
+          "target": 2,
+          "mutual_information": 0.3,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 0.3,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        }
+      ],
+      "avg_psig": 0.2,
+      "decoherence_detected": true,
+      "topology": {
+        "psig": 0.0,
+        "betti": [
+          1,
+          0,
+          0
+        ],
+        "diagrams": {
+          "H0": [
+            [
+              0.0,
+              0.9949874371066199
+            ],
+            [
+              0.0,
+              1.148912529307606
+            ],
+            [
+              0.0,
+              null
+            ]
+          ],
+          "H1": [
+            [
+              1.2767145334803705,
+              1.2767145334803705
+            ]
+          ]
+        },
+        "n_finite_h1": 0,
+        "max_edge": 1.2767145334803705,
+        "distance_model": "euclidean_distance_between_correlation_profiles",
+        "metric_scope": "Supplied normalized biological correlation structure; no quantum-coherence, causal, clinical or biological-diagnostic inference."
+      },
+      "logical_topology": {
+        "P_sig": null,
+        "scope": "not_applicable_external_non_density_input"
+      },
+      "tsp_inspection": {
+        "path": [
+          0,
+          2,
+          1,
+          0
+        ],
+        "cost": 14.60589403,
+        "method": "held_karp_exact",
+        "nodes": [
+          0,
+          1,
+          2
+        ]
+      },
+      "cube_slice": [
+        [
+          1.0,
+          0.2,
+          0.1
+        ],
+        [
+          0.2,
+          1.0,
+          0.3
+        ],
+        [
+          0.1,
+          0.3,
+          1.0
+        ]
+      ],
+      "metric_scope": {
+        "density_metrics_available": false,
+        "fidelity": "not_available",
+        "purity": "not_available",
+        "concurrence": "not_available",
+        "criticality": "structural_priority_from_declared_association_not_quantum_decoherence",
+        "association": "Supplied normalized biological correlation structure; no quantum-coherence, causal, clinical or biological-diagnostic inference."
+      }
+    },
+    {
+      "step": 1,
+      "gate": "window_1",
+      "qubits": [
+        {
+          "id": 0,
+          "position": [
+            2.8,
+            0.0,
+            0.0
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.45,
+          "psig": 0.45,
+          "degree": 2,
+          "criticality": 0.4125,
+          "criticality_terms": {
+            "structural_support_deficit": 0.55,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 1,
+          "position": [
+            -1.4,
+            2.424871,
+            -0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.5,
+          "psig": 0.5,
+          "degree": 2,
+          "criticality": 0.375,
+          "criticality_terms": {
+            "structural_support_deficit": 0.5,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 2,
+          "position": [
+            -1.4,
+            -2.424871,
+            0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.15,
+          "psig": 0.15,
+          "degree": 2,
+          "criticality": 0.6375,
+          "criticality_terms": {
+            "structural_support_deficit": 0.85,
+            "link_break_ratio": 0.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "mutual_information": 0.8,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 0.8,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        },
+        {
+          "source": 0,
+          "target": 2,
+          "mutual_information": 0.1,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 0.1,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        },
+        {
+          "source": 1,
+          "target": 2,
+          "mutual_information": 0.2,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 0.2,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        }
+      ],
+      "avg_psig": 0.366666667,
+      "decoherence_detected": true,
+      "topology": {
+        "psig": 0.0,
+        "betti": [
+          1,
+          0,
+          0
+        ],
+        "diagrams": {
+          "H0": [
+            [
+              0.0,
+              0.29999999999999993
+            ],
+            [
+              0.0,
+              1.3304134695650072
+            ],
+            [
+              0.0,
+              null
+            ]
+          ],
+          "H1": [
+            [
+              1.407124727947029,
+              1.407124727947029
+            ]
+          ]
+        },
+        "n_finite_h1": 0,
+        "max_edge": 1.407124727947029,
+        "distance_model": "euclidean_distance_between_correlation_profiles",
+        "metric_scope": "Supplied normalized biological correlation structure; no quantum-coherence, causal, clinical or biological-diagnostic inference."
+      },
+      "logical_topology": {
+        "P_sig": null,
+        "scope": "not_applicable_external_non_density_input"
+      },
+      "tsp_inspection": {
+        "path": [
+          0,
+          2,
+          0
+        ],
+        "cost": 9.718410247,
+        "method": "held_karp_exact",
+        "nodes": [
+          0,
+          2
+        ]
+      },
+      "cube_slice": [
+        [
+          1.0,
+          0.8,
+          0.1
+        ],
+        [
+          0.8,
+          1.0,
+          0.2
+        ],
+        [
+          0.1,
+          0.2,
+          1.0
+        ]
+      ],
+      "metric_scope": {
+        "density_metrics_available": false,
+        "fidelity": "not_available",
+        "purity": "not_available",
+        "concurrence": "not_available",
+        "criticality": "structural_priority_from_declared_association_not_quantum_decoherence",
+        "association": "Supplied normalized biological correlation structure; no quantum-coherence, causal, clinical or biological-diagnostic inference."
+      }
+    }
+  ],
+  "design_context": {
+    "source": {
+      "mode": "external_bio_correlation",
+      "declared_source": {
+        "dataset": "declared-local-fixture",
+        "measurement_protocol": "Fixture demonstrating normalized relation matrices only; no biological conclusion."
+      }
+    },
+    "labels": [
+      "signal_0",
+      "signal_1",
+      "signal_2"
+    ],
+    "compilation": {
+      "kind": "external_association_import",
+      "hardware_calibrated": false,
+      "scope": "Supplied normalized biological correlation structure; no quantum-coherence, causal, clinical or biological-diagnostic inference."
+    }
+  }
+}

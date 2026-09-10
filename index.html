@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>RATISS Decoherence Atlas — Offline</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">RATISS · ATLAS LOCAL</p>
+        <h1>Topological Decoherence Atlas</h1>
+      </div>
+      <div class="header-actions">
+        <label class="file-button" for="artifact-file">Ouvrir un artefact JSON</label>
+        <input id="artifact-file" type="file" accept="application/json,.json" />
+        <a class="quiet-link" href="data/full_timeline.json" download>Télécharger l’exemple</a>
+      </div>
+    </header>
+
+    <section class="personal-studio" aria-label="Studio personnel de conception locale">
+      <div class="personal-studio-heading">
+        <p class="eyebrow">STUDIO PERSONNEL · CONCEPTION LOCALE</p>
+        <h2 id="personal-design-name">Design Quantum Studio</h2>
+        <p>Éditer un modèle de circuit local, consulter ses couches et risques nominaux, puis exporter le design ou charger une timeline RATISS compatible.</p>
+      </div>
+      <div class="personal-actions">
+        <button id="personal-demo" type="button">Démo Studio</button>
+        <button id="personal-add-qubit" type="button">+ Transmon</button>
+        <button id="personal-optimize" type="button">Optimiser</button>
+        <button id="personal-export" type="button">Exporter le design</button>
+      </div>
+      <div class="personal-grid">
+        <section><h3>Schéma local</h3><svg id="personal-schematic" viewBox="0 0 100 100" role="img" aria-label="Schéma local Quantum Circuit Studio"></svg></section>
+        <section><h3>Couches</h3><div id="personal-layers" class="small-stack"></div><h3>Fréquences</h3><div id="personal-frequency" class="small-stack"></div></section>
+        <section><h3>Diaphonie nominale</h3><div id="personal-crosstalk" class="small-stack"></div><p class="personal-boundary">Les risques de fréquence et diaphonie sont des overlays de conception du Studio, pas une extraction EM ni une calibration.</p></section>
+      </div>
+      <pre id="personal-console">Le Studio Personnel est prêt. La simulation complète provient d’un export RATISS chargé localement ; aucun calcul cloud n’est requis pour explorer ou rejouer un artefact.</pre>
+    </section>
+
+    <section class="ablation-panel" aria-label="Comparaison de régularisation TTF">
+      <div>
+        <p class="eyebrow">COMPARAISON EXPÉRIMENTALE · TTF</p>
+        <h2>Référence et régularisation de graphe</h2>
+        <p>Charge les deux timelines calculées par le Studio Cloud. Le navigateur ne modifie aucun état : il rejoue la référence ou la régularisation et expose la frontière d’inspection exportée.</p>
+      </div>
+      <div class="ablation-actions">
+        <label class="file-button secondary" for="ttf-baseline-file">Charger référence</label>
+        <input id="ttf-baseline-file" type="file" accept="application/json,.json" />
+        <label class="file-button secondary" for="ttf-regularized-file">Charger régularisation</label>
+        <input id="ttf-regularized-file" type="file" accept="application/json,.json" />
+        <button id="show-ttf-baseline" type="button" disabled>Voir référence</button>
+        <button id="show-ttf-regularized" type="button" disabled>Voir régularisation</button>
+      </div>
+      <p id="ttf-comparison-status" class="ablation-status">En attente des deux timelines TTF calculées.</p>
+    </section>
+
+    <main class="app-shell">
+      <section class="stage-panel" aria-label="Visualisation 3D des corrélations">
+        <div id="stage" role="application" aria-label="Scène 3D de qubits et de corrélations"></div>
+        <div id="tooltip" class="tooltip" hidden></div>
+        <div class="stage-badge"><span id="source-dot"></span><span id="source-label">En attente d’un artefact local</span></div>
+        <div class="stage-help">Glisser pour tourner · Molette pour zoomer · Cliquer un nœud pour l’isoler</div>
+      </section>
+
+      <aside class="inspector" aria-label="Inspecteur de trajectoire">
+        <section class="inspector-section active-step">
+          <div class="section-kicker">ÉTAPE <span id="step-number">—</span></div>
+          <h2 id="gate-name">Aucun artefact chargé</h2>
+          <p id="step-summary">Choisis <code>data/full_timeline.json</code> ou un export compatible du moteur.</p>
+        </section>
+
+        <section class="metric-grid" aria-label="Métriques de l’étape">
+          <div class="metric"><span>P<sub>sig</sub> graphe</span><strong id="graph-psig">—</strong></div>
+          <div class="metric"><span>P<sub>sig</sub> logique</span><strong id="logical-psig">—</strong></div>
+          <div class="metric"><span>Décorrélation moyenne</span><strong id="average-decoherence">—</strong></div>
+          <div class="metric"><span>État critique</span><strong id="criticality-state">—</strong></div>
+        </section>
+
+        <section class="inspector-section">
+          <div class="section-kicker">TOPOLOGIE</div>
+          <div id="topology-detail" class="detail-list empty">Les diagrammes et nombres de Betti apparaîtront ici.</div>
+        </section>
+
+        <section class="inspector-section">
+          <div class="section-kicker">ROUTE D’INSPECTION TSP</div>
+          <div id="tsp-detail" class="detail-list empty">Aucune route à afficher.</div>
+        </section>
+
+        <section class="inspector-section selected-section">
+          <div class="section-kicker">NŒUD SÉLECTIONNÉ</div>
+          <div id="selected-detail" class="detail-list empty">Clique un qubit dans la scène pour suivre sa signature.</div>
+        </section>
+
+        <section class="legend" aria-label="Légende de la visualisation">
+          <div><i class="legend-node stable"></i> Stabilité simulée élevée</div>
+          <div><i class="legend-node watch"></i> À surveiller</div>
+          <div><i class="legend-node critical"></i> Criticité calculée</div>
+          <div><i class="legend-line"></i> Tube : force de corrélation exportée</div>
+          <div><i class="legend-route"></i> Route TSP : inspection, pas P<sub>sig</sub></div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="timeline-panel" aria-label="Navigation temporelle">
+      <div class="timeline-controls">
+        <button id="play-button" type="button" disabled>Lire</button>
+        <button id="reset-button" type="button" disabled>Réinitialiser la caméra</button>
+        <label for="step-slider">Position</label>
+        <input id="step-slider" type="range" min="0" max="0" value="0" disabled />
+        <output id="step-output" for="step-slider">—</output>
+      </div>
+      <div class="plot-shell">
+        <canvas id="timeline-chart" width="1600" height="210" aria-label="Évolution temporelle des métriques P sig"></canvas>
+      </div>
+      <p class="scope-note">Cet atlas rejoue uniquement les valeurs contenues dans l’artefact chargé. Il ne simule pas, ne soumet pas de circuit et ne déclare aucune validation matérielle.</p>
+    </section>
+
+    <script src="vendor/three.min.js"></script>
+    <script src="app.js"></script>
+    <script src="studio-model.js"></script>
+    <script src="personal-studio.js"></script>
+  </body>
+</html>

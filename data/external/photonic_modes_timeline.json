@@ -1,0 +1,354 @@
+{
+  "schema": "ratiss.topological-decoherence.timeline.v1",
+  "provenance": {
+    "mode": "external_photonic_modes",
+    "engine": "ratiss-topological-decoherence-engine",
+    "simulation": "photonic_mode_association",
+    "validated_on_hardware": false,
+    "claim_boundary": "Simulation and topological post-processing only; not a hardware topological-qubit certification or an error-correction command."
+  },
+  "encoding": {
+    "profile": "external_photonic_modes",
+    "description": "Mode co-occupation association from declared photonic outcome probabilities; not a reconstructed photonic density matrix or an unmeasured interference claim.",
+    "hardware_claim": "none"
+  },
+  "config": {
+    "n_qubits": 3,
+    "scenario": "external_photonic_modes",
+    "t1_seconds": 0.0001,
+    "t2_seconds": 5e-05,
+    "single_gate_seconds": 4e-06,
+    "two_gate_seconds": 1.2e-05,
+    "one_qubit_depolarizing": 0.001,
+    "two_qubit_depolarizing": 0.01,
+    "edge_threshold": 0.04,
+    "criticality_threshold": 0.38,
+    "rips_max_edge": null
+  },
+  "cube": {
+    "axes": [
+      "step",
+      "source_qubit",
+      "target_qubit"
+    ],
+    "metric": "mode_cooccupation_association",
+    "normalization": "declared association normalized to [0, 1]"
+  },
+  "steps": [
+    {
+      "step": 0,
+      "gate": "separated_modes",
+      "qubits": [
+        {
+          "id": 0,
+          "position": [
+            2.8,
+            0.0,
+            0.0
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.0,
+          "psig": 0.0,
+          "degree": 0,
+          "criticality": 0.75,
+          "criticality_terms": {
+            "structural_support_deficit": 1.0,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 1,
+          "position": [
+            -1.4,
+            2.424871,
+            -0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.0,
+          "psig": 0.0,
+          "degree": 0,
+          "criticality": 0.75,
+          "criticality_terms": {
+            "structural_support_deficit": 1.0,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 2,
+          "position": [
+            -1.4,
+            -2.424871,
+            0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.0,
+          "psig": 0.0,
+          "degree": 0,
+          "criticality": 0.75,
+          "criticality_terms": {
+            "structural_support_deficit": 1.0,
+            "link_break_ratio": 0.0
+          }
+        }
+      ],
+      "edges": [],
+      "avg_psig": 0.0,
+      "decoherence_detected": true,
+      "topology": {
+        "psig": 0.0,
+        "betti": [
+          1,
+          0,
+          0
+        ],
+        "diagrams": {
+          "H0": [
+            [
+              0.0,
+              1.4142135623730951
+            ],
+            [
+              0.0,
+              1.4142135623730951
+            ],
+            [
+              0.0,
+              null
+            ]
+          ],
+          "H1": [
+            [
+              1.4142135623730951,
+              1.4142135623730951
+            ]
+          ]
+        },
+        "n_finite_h1": 0,
+        "max_edge": 1.4142135623730951,
+        "distance_model": "euclidean_distance_between_correlation_profiles",
+        "metric_scope": "Mode co-occupation association from declared photonic outcome probabilities; not a reconstructed photonic density matrix or an unmeasured interference claim."
+      },
+      "logical_topology": {
+        "P_sig": null,
+        "scope": "not_applicable_external_non_density_input"
+      },
+      "tsp_inspection": {
+        "path": [
+          0,
+          2,
+          1,
+          0
+        ],
+        "cost": 14.60589403,
+        "method": "held_karp_exact",
+        "nodes": [
+          0,
+          1,
+          2
+        ]
+      },
+      "cube_slice": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "metric_scope": {
+        "density_metrics_available": false,
+        "fidelity": "not_available",
+        "purity": "not_available",
+        "concurrence": "not_available",
+        "criticality": "structural_priority_from_declared_association_not_quantum_decoherence",
+        "association": "Mode co-occupation association from declared photonic outcome probabilities; not a reconstructed photonic density matrix or an unmeasured interference claim."
+      }
+    },
+    {
+      "step": 1,
+      "gate": "cooccupied_modes",
+      "qubits": [
+        {
+          "id": 0,
+          "position": [
+            2.8,
+            0.0,
+            0.0
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.5,
+          "psig": 0.5,
+          "degree": 1,
+          "criticality": 0.375,
+          "criticality_terms": {
+            "structural_support_deficit": 0.5,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 1,
+          "position": [
+            -1.4,
+            2.424871,
+            -0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.5,
+          "psig": 0.5,
+          "degree": 1,
+          "criticality": 0.375,
+          "criticality_terms": {
+            "structural_support_deficit": 0.5,
+            "link_break_ratio": 0.0
+          }
+        },
+        {
+          "id": 2,
+          "position": [
+            -1.4,
+            -2.424871,
+            0.303109
+          ],
+          "fidelity_to_ideal": null,
+          "local_decoherence": null,
+          "purity": null,
+          "topology_support": 0.0,
+          "psig": 0.0,
+          "degree": 0,
+          "criticality": 0.75,
+          "criticality_terms": {
+            "structural_support_deficit": 1.0,
+            "link_break_ratio": 0.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "mutual_information": 1.0,
+          "pauli_correlation": 0.0,
+          "concurrence": 0.0,
+          "correlation": 1.0,
+          "type": "declared_association",
+          "stability": 1.0,
+          "active": true
+        }
+      ],
+      "avg_psig": 0.333333333,
+      "decoherence_detected": true,
+      "topology": {
+        "psig": 0.0,
+        "betti": [
+          1,
+          0,
+          0
+        ],
+        "diagrams": {
+          "H0": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.7320508075688772
+            ],
+            [
+              0.0,
+              null
+            ]
+          ],
+          "H1": [
+            [
+              1.7320508075688772,
+              1.7320508075688772
+            ]
+          ]
+        },
+        "n_finite_h1": 0,
+        "max_edge": 1.7320508075688772,
+        "distance_model": "euclidean_distance_between_correlation_profiles",
+        "metric_scope": "Mode co-occupation association from declared photonic outcome probabilities; not a reconstructed photonic density matrix or an unmeasured interference claim."
+      },
+      "logical_topology": {
+        "P_sig": null,
+        "scope": "not_applicable_external_non_density_input"
+      },
+      "tsp_inspection": {
+        "path": [
+          2
+        ],
+        "cost": 0.0,
+        "method": "trivial",
+        "nodes": [
+          2
+        ]
+      },
+      "cube_slice": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "metric_scope": {
+        "density_metrics_available": false,
+        "fidelity": "not_available",
+        "purity": "not_available",
+        "concurrence": "not_available",
+        "criticality": "structural_priority_from_declared_association_not_quantum_decoherence",
+        "association": "Mode co-occupation association from declared photonic outcome probabilities; not a reconstructed photonic density matrix or an unmeasured interference claim."
+      }
+    }
+  ],
+  "design_context": {
+    "source": {
+      "mode": "external_photonic_modes",
+      "declared_source": {
+        "framework": "declared-local-photonic-fixture",
+        "kind": "mode-probabilities",
+        "note": "Test fixture; not an external photonic device result."
+      }
+    },
+    "labels": [
+      "m0",
+      "m1",
+      "m2"
+    ],
+    "compilation": {
+      "kind": "external_association_import",
+      "hardware_calibrated": false,
+      "scope": "Mode co-occupation association from declared photonic outcome probabilities; not a reconstructed photonic density matrix or an unmeasured interference claim."
+    }
+  }
+}
