@@ -5,208 +5,208 @@
 [![RATISS Labs](https://img.shields.io/badge/RATISS_Labs-Deep_Tech_Sovereign-06b6d4)](https://github.com/jonathansearch)
 
 <p align="center">
-  <img src="docs/brand/atlas-logo.png" alt="RATISS Atlas — scène topologique WebGL et cycle de persistance H1" width="220"/>
+  <img src="docs/brand/atlas-logo.png" alt="RATISS Atlas — WebGL topological scene and H1 persistence cycle" width="220"/>
 </p>
 
 <h1 align="center">RATISS Quantum Topology Studio Personal</h1>
 
 <p align="center">
-  <a href="LICENSE"><img alt="Licence MIT" src="https://img.shields.io/badge/Licence-MIT-42d6ad?style=for-the-badge"></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/Licence-MIT-42d6ad?style=for-the-badge"></a>
   <img alt="JavaScript / Node" src="https://img.shields.io/badge/JavaScript-Node%20%E2%89%A5%2018-79b8ff?style=for-the-badge&logo=javascript&logoColor=white">
   <img alt="Three.js WebGL" src="https://img.shields.io/badge/Three.js-WebGL-6929c4?style=for-the-badge">
-  <img alt="Hors ligne / file://" src="https://img.shields.io/badge/Ex%C3%A9cution-hors%20ligne-ff927d?style=for-the-badge">
+  <img alt="Offline / file://" src="https://img.shields.io/badge/Ex%C3%A9cution-hors%20ligne-ff927d?style=for-the-badge">
 </p>
 
-> **Un studio de conception et de cartographie topologique qui s’ouvre directement dans le navigateur, sans serveur, sans CDN et sans compte.**
+> **A topological design and mapping studio that opens directly in the browser — no server, no CDN, no account.**
 
-Le **Studio Personnel** est le compagnon hors ligne du Studio Cloud. Il met dans un seul dépôt une conception locale compacte issue du modèle Quantum Circuit Studio, un lecteur de timelines RATISS, une scène WebGL Three.js empaquetée localement, les métriques exportées, les routes TSP et une comparaison d’ablation TTF. Il est conçu pour être cloné, ouvert et exploré seul.
+The **Personal Studio** is the offline companion of the Studio Cloud. It packs into a single repository a compact local design derived from the Quantum Circuit Studio model, a RATISS timeline player, a locally bundled Three.js WebGL scene, the exported metrics, TSP routes, and a TTF ablation comparison. It is designed to be cloned, opened, and explored on its own.
 
-![Espace de travail complet du Studio Personnel RATISS hors ligne](docs/media/personal-studio-workspace.webp)
+![Full workspace of the offline RATISS Personal Studio](docs/media/personal-studio-workspace.webp)
 
-> **Preuve visuelle de l’interface hors ligne.** Cette capture réelle montre le design `transmon-microcell`, son schéma local, les couches, les fréquences, l’overlay de diaphonie, les contrôles d’export et les panneaux d’atlas dans la page `file://`. Le Studio Personnel présente et exporte les données ; il ne prétend pas simuler une matrice densité ou valider un matériel dans le navigateur.
+> **Visual proof of the offline interface.** This real screenshot shows the `transmon-microcell` design, its local schematic, the layers, the frequencies, the crosstalk overlay, the export controls, and the atlas panels on the `file://` page. The Personal Studio presents and exports data; it does not claim to simulate a density matrix or validate hardware in the browser.
 
-## Pourquoi un qubit topologique RATISS dans un Studio Personnel ?
+## Why a RATISS topological qubit in a Personal Studio?
 
-Le Studio Personnel n’est pas une version décorative ou affaiblie du paradigme RATISS. Il conserve, dans un navigateur ouvert par `file://`, la capacité de **rejouer un qubit topologique logique simulé** à partir des champs réellement présents dans une timeline. Cette séparation est volontaire : le calcul dense et la production de l’artefact peuvent avoir lieu dans le Studio Cloud, alors que l’examen de la phase, de la torsion, de la cohérence et de la signature logique reste local, portable et sans réseau.
+The Personal Studio is not a decorative or weakened version of the RATISS paradigm. In a browser opened via `file://`, it retains the ability to **replay a simulated logical topological qubit** from the fields actually present in a timeline. This separation is deliberate: dense computation and artifact production can happen in the Studio Cloud, while the examination of phase, twist, coherence, and the logical signature stays local, portable, and network-free.
 
-> Lorsque `logical_topology` est exporté, l’Atlas dessine un anneau distribué, trois brins de tresse et un arc de phase qui correspondent aux champs du snapshot. Lorsqu’il est absent — par exemple dans une ablation TTF de graphe — le lecteur affiche **« non exportée »** et ne fabrique aucun qubit topologique visuel.
+> When `logical_topology` is exported, the Atlas draws a distributed ring, three braid strands, and a phase arc that match the snapshot fields. When it is absent — for example in a graph TTF ablation — the player displays **"not exported"** and fabricates no visual topological qubit.
 
-| Besoin scientifique | Réponse du Studio Personnel | Limite préservée |
+| Scientific need | Personal Studio answer | Preserved limit |
 |---|---|---|
-| Relire une trajectoire de circuit en dehors de la machine de calcul | Chargement d’un `timeline.v1` ou d’un snapshot embarqué, avec design et provenance visibles. | Le navigateur ne relance pas une simulation matrice densité (il lit les artefacts, simulés ou mesurés sur QPU). |
-| Comprendre la couche topologique logique | Anneau, tresse, phase, cohérence et protection affichés depuis l’artefact. | Ce sont des variables logicielles, pas des mesures d’un qubit matériel. |
-| Préparer une revue ou une discussion scientifique | La scène relie design, relations de graphe, criticité et signature logique à une étape précise. | La scène audite les artefacts fournis. Ce que la scène ne fait pas : prouver une correction d’erreur physique ou contrôler le matériel. |
-| Comparer les scénarios TTF | La bascule conserve la provenance de référence/régularisation et déclare l’absence éventuelle de sidecar logique. | L’ablation reste une expérience sur les relations de graphe. |
+| Re-reading a circuit trajectory outside the compute machine | Loading a `timeline.v1` or an embedded snapshot, with visible design and provenance. | The browser does not re-run a density-matrix simulation (it reads artifacts, simulated or measured on QPU). |
+| Understanding the logical topological layer | Ring, braid, phase, coherence, and protection displayed from the artifact. | These are software variables, not measurements of a hardware qubit. |
+| Preparing a review or a scientific discussion | The scene links design, graph relations, criticality, and the logical signature to a precise step. | The scene audits the provided artifacts. What the scene does not do: prove physical error correction or control hardware. |
+| Comparing TTF scenarios | The toggle keeps the reference/regularization provenance and declares any missing logical sidecar. | The ablation remains an experiment on graph relations. |
 
-### La grammaire visuelle locale
+### The local visual grammar
 
-La scène Three.js ne simule pas d’atomes ni ne crée de données supplémentaires. L’anneau tordu et ses douze balises dérivent de `twist` et `P_sig`; l’arc doré suit `phase`; la luminosité suit `coherence`; l’état vert/rouge suit `protected`. Les solides et les tubes voisins relèvent du graphe de corrélations exporté ; la route rose est un ordre TSP d’inspection séparé. Cette distinction rend la page portable sans transformer un replay visuel en affirmation matérielle.
+The Three.js scene does not simulate atoms and does not create extra data. The twisted ring and its twelve beacons derive from `twist` and `P_sig`; the golden arc follows `phase`; brightness follows `coherence`; the green/red state follows `protected`. The neighboring solids and tubes come from the exported correlation graph; the pink route is a separate inspection TSP order. This distinction keeps the page portable without turning a visual replay into a hardware claim.
 
-## Une expérience complète, hors ligne
+## A complete, offline experience
 
-Le navigateur ne doit pas deviner une simulation. Il affiche les résultats exacts d’un artefact JSON ou d’un snapshot généré depuis ce fichier. Cela donne une frontière claire entre **conception locale**, **replay visuel** et **calcul du moteur**.
+The browser must not guess a simulation. It displays the exact results of a JSON artifact or of a snapshot generated from that file. This draws a clear boundary between **local design**, **visual replay**, and **engine computation**.
 
-| Fonction | Disponible sans connexion | Source de vérité |
+| Feature | Available without connection | Source of truth |
 |---|---:|---|
-| Design `transmon-microcell` compact | Oui | `studio-model.js` |
-| Couches conceptuelles et fréquences nominales | Oui | Modèle de conception local |
-| Overlay de diaphonie | Oui | Heuristique de conception explicitement étiquetée |
-| Export de design | Oui | Format `quantum-circuit-studio/v0.1` |
-| Lecture de timeline RATISS | Oui | Fichier `timeline.v1` choisi localement |
-| Scène WebGL, nœuds, tubes et route TSP | Oui | Champs exportés de la timeline |
-| Comparaison TTF | Oui | Deux timelines TTF séparées ou snapshots embarqués |
-| Matrice densité ou soumission QPU | Non | À exécuter dans le Studio Cloud |
+| Compact `transmon-microcell` design | Yes | `studio-model.js` |
+| Conceptual layers and nominal frequencies | Yes | Local design model |
+| Crosstalk overlay | Yes | Explicitly labeled design heuristic |
+| Design export | Yes | `quantum-circuit-studio/v0.1` format |
+| RATISS timeline playback | Yes | Locally chosen `timeline.v1` file |
+| WebGL scene, nodes, tubes, and TSP route | Yes | Exported timeline fields |
+| TTF comparison | Yes | Two separate TTF timelines or embedded snapshots |
+| Density matrix or QPU submission | No | To be run in the Studio Cloud |
 
-## Interface complète, vraiment hors ligne
+## A complete interface, truly offline
 
-Le Studio Personnel ne réduit pas le modèle Quantum Studio à un simple lecteur. Il conserve un espace de conception compact pour afficher le schéma, les composants, les couches conceptuelles, les fréquences et la diaphonie nominale, puis associe ce design à un atlas WebGL lorsque l’utilisateur ouvre une timeline compatible. Les scripts classiques et Three.js distribués dans le dépôt permettent cette expérience avec `file://`, sans CDN et sans dépendance réseau.
+The Personal Studio does not reduce the Quantum Studio model to a mere player. It keeps a compact design space to display the schematic, the components, the conceptual layers, the frequencies, and the nominal crosstalk, then pairs that design with a WebGL atlas when the user opens a compatible timeline. The classic scripts and Three.js shipped in the repository enable this experience with `file://`, no CDN and no network dependency.
 
-| Zone visible dans l’interface | Fonction locale | Portée explicitement limitée |
+| Visible zone in the interface | Local function | Explicitly limited scope |
 |---|---|---|
-| Conception Quantum Studio | Démo, ajout de transmon, optimisation heuristique et export `v0.1` | Pas de layout de fonderie ni extraction EM |
-| Schéma, couches et fréquence | Inspection d’un design local et de ses proxys | Fréquences nominales, non calibrées |
-| Overlay de diaphonie | Risque de conception selon une heuristique documentée | Pas une mesure électromagnétique |
-| Atlas WebGL et timeline | Replay d’un artefact fourni par fichier ou snapshot | N’invente aucune donnée ou métrique absente |
-| Comparaison TTF | Bascule entre deux timelines calculées séparément | Ablation de graphe, pas correction matérielle |
+| Quantum Studio design | Demo, transmon addition, heuristic optimization, and `v0.1` export | No foundry layout or EM extraction |
+| Schematic, layers, and frequency | Inspection of a local design and its proxies | Nominal frequencies, not calibrated |
+| Crosstalk overlay | Design risk according to a documented heuristic | Not an electromagnetic measurement |
+| WebGL atlas and timeline | Replay of an artifact supplied by file or snapshot | Never invents missing data or metrics |
+| TTF comparison | Toggle between two separately computed timelines | Graph ablation, not hardware correction |
 
-## Lancement immédiat
+## Instant launch
 
 ```bash
 git clone https://github.com/evinajonathan13-max/ratiss-decoherence-atlas
 cd ratiss-decoherence-atlas
-# Ouvrir index.html directement dans Chrome, Firefox ou Safari.
+# Open index.html directly in Chrome, Firefox, or Safari.
 ```
 
-La page principale fournit un design local prêt à lire. Pour rejouer un calcul, cliquez **« Ouvrir un artefact JSON »** puis sélectionnez `data/full_timeline.json`, une timeline du Studio Cloud, ou un fichier compatible. Ce flux volontaire contourne les restrictions de `fetch()` associées à `file://` sans introduire de serveur caché.
+The main page provides a ready-to-read local design. To replay a computation, click **"Open a JSON artifact"** then select `data/full_timeline.json`, a Studio Cloud timeline, or a compatible file. This deliberate flow bypasses the `fetch()` restrictions associated with `file://` without introducing any hidden server.
 
-## Démonstrations WebGL visibles directement dans ce README
+## WebGL demos visible directly in this README
 
-GitHub Markdown ne peut pas exécuter le JavaScript de pages `file://` dans un README. Les deux blocs suivants apportent donc des **aperçus animés réels**, issus des rendus du Studio Personnel en fonctionnement hors ligne. Un clic ouvre la vidéo WebM versionnée ; pour manipuler la scène, ouvrez simplement le fichier HTML local indiqué.
+GitHub Markdown cannot run the JavaScript of `file://` pages in a README. The two blocks below therefore provide **real animated previews**, taken from the Personal Studio renders running offline. One click opens the versioned WebM video; to manipulate the scene, simply open the indicated local HTML file.
 
-### Démonstration 01 — replay local design + trajectoire
+### Demo 01 — local design + trajectory replay
 
-[![Aperçu animé réel de la trajectoire du Studio Personnel](docs/media/personal-trajectory-webgl-preview.gif)](docs/media/personal-trajectory-webgl.webm)
+[![Real animated preview of the Personal Studio trajectory](docs/media/personal-trajectory-webgl-preview.gif)](docs/media/personal-trajectory-webgl.webm)
 
-L’aperçu présente deux étapes de la timeline locale, de `h(0)` à `cz(0,1)`, sans cacher le design Studio à gauche. La démo interactive enrichie rend visible l’anneau, les trois brins de tresse et la phase du qubit topologique logique lorsque ces champs sont réellement exportés. Elle reste entièrement `file://`, sans appel réseau. Pour l’interaction complète, ouvrez [`demos/trajectory-replay.html`](demos/trajectory-replay.html) depuis le clone local.
+The preview shows two steps of the local timeline, from `h(0)` to `cz(0,1)`, without hiding the Studio design on the left. The enriched interactive demo makes the ring, the three braid strands, and the phase of the logical topological qubit visible when those fields are actually exported. It remains fully `file://`, with no network call. For full interaction, open [`demos/trajectory-replay.html`](demos/trajectory-replay.html) from the local clone.
 
-### Démonstration 02 — ablation TTF locale
+### Demo 02 — local TTF ablation
 
-[![Aperçu animé réel de la comparaison TTF personnelle](docs/media/personal-ttf-webgl-preview.gif)](docs/media/personal-ttf-webgl.webm)
+[![Real animated preview of the personal TTF comparison](docs/media/personal-ttf-webgl-preview.gif)](docs/media/personal-ttf-webgl.webm)
 
-L’aperçu alterne la référence et la régularisation embarquées tout en conservant l’interface Quantum Studio et la provenance `file://`. La comparaison agit sur les relations de graphe exportées ; elle ne modifie pas un état quantique physique. Pour l’interaction complète, ouvrez [`demos/ttf-ablation.html`](demos/ttf-ablation.html) depuis le clone local.
+The preview alternates the embedded reference and regularization while keeping the Quantum Studio interface and the `file://` provenance. The comparison acts on the exported graph relations; it does not modify a physical quantum state. For full interaction, open [`demos/ttf-ablation.html`](demos/ttf-ablation.html) from the local clone.
 
-| Démonstration | Média intégré | Vidéo | Interaction locale |
+| Demo | Embedded media | Video | Local interaction |
 |---|---|---|---|
-| Replay local de trajectoire | [`GIF animé`](docs/media/personal-trajectory-webgl-preview.gif) | [`WebM`](docs/media/personal-trajectory-webgl.webm) | Timeline, rotation, zoom et reset caméra |
-| Comparaison locale TTF | [`GIF animé`](docs/media/personal-ttf-webgl-preview.gif) | [`WebM`](docs/media/personal-ttf-webgl.webm) | Référence/régularisation, timeline, rotation et zoom |
+| Local trajectory replay | [`Animated GIF`](docs/media/personal-trajectory-webgl-preview.gif) | [`WebM`](docs/media/personal-trajectory-webgl.webm) | Timeline, rotation, zoom, and camera reset |
+| Local TTF comparison | [`Animated GIF`](docs/media/personal-ttf-webgl-preview.gif) | [`WebM`](docs/media/personal-ttf-webgl.webm) | Reference/regularization, timeline, rotation, and zoom |
 
-Les captures sont des rendus réels des deux pages, et non des maquettes. Le catalogue, la recette de régénération et les constats visuels sont disponibles dans [`docs/DEMO_CATALOG.md`](docs/DEMO_CATALOG.md) et [`docs/DEMO_VISUAL_AUDIT.md`](docs/DEMO_VISUAL_AUDIT.md).
+The screenshots are real renders of the two pages, not mockups. The catalog, the regeneration recipe, and the visual findings are available in [`docs/DEMO_CATALOG.md`](docs/DEMO_CATALOG.md) and [`docs/DEMO_VISUAL_AUDIT.md`](docs/DEMO_VISUAL_AUDIT.md).
 
-## Lire la scène sans surinterpréter les couleurs
+## Reading the scene without over-interpreting the colors
 
-| Élément affiché | Signification dans le lecteur | Ce que cela ne veut pas dire |
+| Displayed element | Meaning in the player | What it does not mean |
 |---|---|---|
-| Sphère turquoise | Nœud avec support de graphe exporté | Qubit physiquement stable |
-| Sphère rouge | Nœud dépassant le seuil de criticité de l’artefact | Défaut matériel diagnostiqué |
-| Tube bleu-violet | Relation ou arête exportée | Couplage électromagnétique mesuré |
-| Chemin rose | Route TSP d’inspection | Calcul de `P_sig` ou correction d’erreur |
-| Ligne `P_sig` | Persistance de graphe fournie | Signature du noyau logique, sauf champ dédié |
-| Signature logique | Sortie du noyau RATISS simulé, lorsqu’elle existe | Mesure directe d’un qubit topologique matériel |
+| Turquoise sphere | Node with exported graph support | Physically stable qubit |
+| Red sphere | Node exceeding the artifact criticality threshold | Diagnosed hardware defect |
+| Blue-violet tube | Exported relation or edge | Measured electromagnetic coupling |
+| Pink path | Inspection TSP route | `P_sig` computation or error correction |
+| `P_sig` line | Provided graph persistence | Logical core signature, unless a dedicated field exists |
+| Logical signature | Output of the simulated RATISS core, when it exists | Direct measurement of a hardware topological qubit |
 
 
-## Validation sur QPU réel (IBM Quantum) — exécutée sur ibm_marrakesh
+## Validation on a real QPU (IBM Quantum) — run on ibm_marrakesh
 
-Notre simulateur n'est **pas que théorique** : deux circuits ont été exécutés
-sur un vrai QPU **ibm_marrakesh** (IBM Quantum), et les résultats mesurés
-alimentent les artefacts que cet Atlas rejoue. Les Job IDs sont publics et
-vérifiables sur [quantum.ibm.com](https://quantum.ibm.com).
+Our simulator is **not just theoretical**: two circuits were run
+on a real **ibm_marrakesh** QPU (IBM Quantum), and the measured results
+feed the artifacts this Atlas replays. The Job IDs are public and
+verifiable on [quantum.ibm.com](https://quantum.ibm.com).
 
-![QPU réel vs simulation idéale](docs/media/qpu_vs_ideal_5q.png)
+![Real QPU vs ideal simulation](docs/media/qpu_vs_ideal_5q.png)
 
-### Exemple 1 — Bell state (2 qubits) : `da53s4jotlns739bfgu0`
+### Example 1 — Bell state (2 qubits): `da53s4jotlns739bfgu0`
 
 Circuit `h(0); cx(0,1); measure_all`, 1024 shots.
 
-| Métrique | Résultat |
+| Metric | Result |
 |---|---|
-| Counts mesurés | `{'11': 526, '00': 491, '01': 4, '10': 3}` |
-| États attendus | **98.7%** (|00⟩ + |11⟩) |
+| Measured counts | `{'11': 526, '00': 491, '01': 4, '10': 3}` |
+| Expected states | **98.7%** (|00⟩ + |11⟩) |
 | Transformation | engine → timeline.v1 |
 
-### Exemple 2 — circuit framework 5 qubits × 10 portes : `da58ftmaa69c739kic90`
+### Example 2 — 5-qubit × 10-gate framework circuit: `da58ftmaa69c739kic90`
 
-Circuit identique au scénario du moteur (h, cx, cx, h, cx, cx, cz, ry, rz, cx),
+Circuit identical to the engine scenario (h, cx, cx, h, cx, cx, cz, ry, rz, cx),
 2048 shots.
 
-**QPU réel vs simulation idéale (même circuit) :**
+**Real QPU vs ideal simulation (same circuit):**
 
-| Métrique | Valeur mesurée |
+| Metric | Measured value |
 |---|---:|
-| Fidélité classique (recouvrement) | **0.928** |
-| Distance total-variation | **0.0718** |
-| États attendus (4 principaux) | **87.9%** des shots |
-| **Taux de décohérence réelle** | **12.1%** (27 états parasites) |
-| Top état QPU | `11001` — 22.1% (vs 25.1% idéal) |
+| Classical fidelity (overlap) | **0.928** |
+| Total-variation distance | **0.0718** |
+| Expected states (top 4) | **87.9%** of shots |
+| **Real decoherence rate** | **12.1%** (27 parasitic states) |
+| Top QPU state | `11001` — 22.1% (vs 25.1% ideal) |
 
-### Portée honnête
+### Honest scope
 
-- Ce sont des **exécutions QPU réelles**, pas des simulations. Job IDs publics.
-- On compare des distributions de mesures classiques (pas une tomographie).
-- L'Atlas rejoue les artefacts produits par le moteur — la validation
-  matérielle vient de l'engine, pas de cette interface.
+- These are **real QPU executions**, not simulations. Public Job IDs.
+- We compare classical measurement distributions (not a tomography).
+- The Atlas replays the artifacts produced by the engine — hardware
+  validation comes from the engine, not from this interface.
 
-Artefacts réutilisés (produits par l'engine) : `qpu_bell_counts.json`,
+Reused artifacts (produced by the engine): `qpu_bell_counts.json`,
 `qpu_5q_counts.json`, `qpu_5q_timeline.json`, `qpu_vs_ideal_comparison.json`.
 
 ---
-## Contrats compatibles
+## Compatible contracts
 
-Le lecteur comprend le format principal `ratiss.topological-decoherence.timeline.v1`, le modèle `quantum-circuit-studio/v0.1` et, pour compatibilité, le format historique RATISS contenant `timeline`, `states`, `graphs` et `n_qubits`. Les imports historiques sont marqués comme tels : aucun score absent n’est reconstruit pour embellir la scène.
+The player understands the main format `ratiss.topological-decoherence.timeline.v1`, the `quantum-circuit-studio/v0.1` model, and, for compatibility, the historical RATISS format containing `timeline`, `states`, `graphs`, and `n_qubits`. Historical imports are labeled as such: no missing score is reconstructed to embellish the scene.
 
-| Type de timeline | Contenu lisible | Étiquetage de portée |
+| Timeline type | Readable content | Scope labeling |
 |---|---|---|
-| Simulation densité | Relations, topologie, fidélité, pureté et criticité si exportées | Simulation locale par défaut. Le pipeline audite aussi les mesures QPU (comptages) — voir section Validation. |
-| Statevector | Relations dérivées et provenance | Statevector de simulation, pas matériel |
-| Comptages Qiskit | Associations classiques de bits | Pas de tomographie, ni entanglement inféré |
-| Modes photoniques | Co-occupations déclarées | Pas de matrice densité photonique inférée |
-| Corrélations bio | Matrices et structures déclarées | Pas de diagnostic biologique automatique |
-| Ablation TTF | Référence/régularisation de graphe | Pas de correction d’erreur physique |
+| Density simulation | Relations, topology, fidelity, purity, and criticality if exported | Local simulation by default. The pipeline also audits QPU measurements (counts) — see the Validation section. |
+| Statevector | Derived relations and provenance | Simulation statevector, not hardware |
+| Qiskit counts | Classical bit associations | No tomography, no inferred entanglement |
+| Photonic modes | Declared co-occupations | No inferred photonic density matrix |
+| Bio correlations | Declared matrices and structures | No automatic biological diagnosis |
+| TTF ablation | Graph reference/regularization | No physical error correction |
 
-## Architecture locale
+## Local architecture
 
 ```mermaid
 flowchart LR
-  A["Design Quantum Studio local"] --> B["Export JSON de design"]
-  C["Timeline RATISS JSON"] --> D["Adaptateur de contrat"]
-  B --> E["Studio Personnel"]
+  A["Local Quantum Studio design"] --> B["Design JSON export"]
+  C["RATISS JSON timeline"] --> D["Contract adapter"]
+  B --> E["Personal Studio"]
   D --> E
-  E --> F["Scène Three.js locale"]
-  E --> G["Timeline et métriques"]
-  E --> H["Route TSP et topologie"]
-  I["Snapshots versionnés"] --> J["Démos locales par fichier"]
+  E --> F["Local Three.js scene"]
+  E --> G["Timeline and metrics"]
+  E --> H["TSP route and topology"]
+  I["Versioned snapshots"] --> J["Local file-based demos"]
 ```
 
-Le fichier `vendor/three.min.js` est fourni dans le dépôt. Aucune dépendance n’est chargée via CDN au runtime. Les scripts classiques `studio-model.js` et `personal-studio.js` existent précisément pour conserver le fonctionnement `file://` dans les navigateurs qui bloquent les imports ES module locaux.
+The `vendor/three.min.js` file is shipped in the repository. No dependency is loaded via CDN at runtime. The classic scripts `studio-model.js` and `personal-studio.js` exist precisely to keep `file://` working in browsers that block local ES module imports.
 
-## Utiliser les données du Studio Cloud
+## Using Studio Cloud data
 
-Le Studio Cloud produit la timeline complète, puis le Studio Personnel peut la relire sans dépendance de runtime. Le flux est volontairement simple :
+The Studio Cloud produces the complete timeline, then the Personal Studio can replay it with no runtime dependency. The flow is deliberately simple:
 
 ```text
-Concevoir ou exporter un design local
+Design or export a local design
         ↓
-Simuler dans le Studio Cloud si nécessaire
+Simulate in the Studio Cloud if needed
         ↓
-Copier ou partager la timeline JSON
+Copy or share the JSON timeline
         ↓
-L’ouvrir dans le Studio Personnel hors ligne
+Open it in the offline Personal Studio
         ↓
-Rejouer, inspecter et présenter la scène WebGL
+Replay, inspect, and present the WebGL scene
 ```
 
-Le contrat entre les deux produits est détaillé dans le dépôt Cloud et résumé dans [`docs/VERIFICATION_NOTES.md`](docs/VERIFICATION_NOTES.md). L’index de chaque preuve de lecture est disponible dans [`docs/EVIDENCE_INDEX.md`](docs/EVIDENCE_INDEX.md).
+The contract between the two products is detailed in the Cloud repository and summarized in [`docs/VERIFICATION_NOTES.md`](docs/VERIFICATION_NOTES.md). The index of each reading proof is available in [`docs/EVIDENCE_INDEX.md`](docs/EVIDENCE_INDEX.md).
 
-## Vérification et régénération des démos
+## Demo verification and regeneration
 
 ```bash
 pnpm test
@@ -214,17 +214,17 @@ node scripts/build_demo_snapshots.mjs
 node --check demos/scene-demo.js
 ```
 
-| Commande | Vérifie ou produit |
+| Command | Verifies or produces |
 |---|---|
-| `pnpm test` | Artefact de base, modèle Studio et trois fixtures externes |
-| `node scripts/build_demo_snapshots.mjs` | Snapshots des deux démos à partir des JSON versionnés |
-| `node --check demos/scene-demo.js` | Syntaxe du renderer WebGL de démonstration |
-| Ouvrir les deux fichiers HTML | Compatibilité réelle avec `file://` |
+| `pnpm test` | Base artifact, Studio model, and three external fixtures |
+| `node scripts/build_demo_snapshots.mjs` | Snapshots of the two demos from the versioned JSONs |
+| `node --check demos/scene-demo.js` | Syntax of the demo WebGL renderer |
+| Open the two HTML files | Real `file://` compatibility |
 
-## Limites de portée
+## Scope limits
 
-Le Studio Personnel ne lance pas une simulation matrice densité, ne soumet pas de circuit, n’effectue pas une extraction EM et ne constitue pas une validation de matériel. Il prépare, exporte et visualise un design ainsi que les résultats explicitement fournis par un artefact.
+The Personal Studio does not launch a density-matrix simulation, does not submit a circuit, does not perform EM extraction, and is not a hardware validation. It prepares, exports, and visualizes a design along with the results explicitly supplied by an artifact.
 
-## Licence
+## License
 
-Ce dépôt est distribué sous [licence MIT](LICENSE). Les métadonnées de citation sont dans [`CITATION.cff`](CITATION.cff). Le modèle Quantum Circuit Studio réutilisé et les données de démonstration gardent leur provenance documentée ; la licence ne remplace pas les limites de simulation de la documentation.
+This repository is distributed under the [MIT license](LICENSE). Citation metadata is in [`CITATION.cff`](CITATION.cff). The reused Quantum Circuit Studio model and the demonstration data keep their documented provenance; the license does not override the simulation limits of the documentation.
