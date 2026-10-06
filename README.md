@@ -72,7 +72,7 @@ The Personal Studio does not reduce the Quantum Studio model to a mere player. I
 ## Instant launch
 
 ```bash
-git clone https://github.com/evinajonathan13-max/ratiss-decoherence-atlas
+git clone https://github.com/jonathansearch/ratiss-decoherence-atlas
 cd ratiss-decoherence-atlas
 # Open index.html directly in Chrome, Firefox, or Safari.
 ```
