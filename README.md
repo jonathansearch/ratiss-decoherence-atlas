@@ -11,10 +11,10 @@
 <h1 align="center">RATISS Quantum Topology Studio Personal</h1>
 
 <p align="center">
-  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/Licence-MIT-42d6ad?style=for-the-badge"></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-42d6ad?style=for-the-badge"></a>
   <img alt="JavaScript / Node" src="https://img.shields.io/badge/JavaScript-Node%20%E2%89%A5%2018-79b8ff?style=for-the-badge&logo=javascript&logoColor=white">
   <img alt="Three.js WebGL" src="https://img.shields.io/badge/Three.js-WebGL-6929c4?style=for-the-badge">
-  <img alt="Offline / file://" src="https://img.shields.io/badge/Ex%C3%A9cution-hors%20ligne-ff927d?style=for-the-badge">
+  <img alt="Offline / file://" src="https://img.shields.io/badge/Run-offline-ff927d?style=for-the-badge">
 </p>
 
 > **A topological design and mapping studio that opens directly in the browser — no server, no CDN, no account.**
